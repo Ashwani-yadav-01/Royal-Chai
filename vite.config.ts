@@ -1,6 +1,9 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react'; // Adjust based on your framework (e.g., Vue, Svelte)
+
+export default defineConfig({
+  plugins: [react()],
+});
 
 export default defineConfig(({ mode }) => {
   let build: UserConfig['build'] = {}
