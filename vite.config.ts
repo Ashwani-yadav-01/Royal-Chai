@@ -1,14 +1,10 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react'; // Adjust based on your framework (e.g., Vue, Svelte)
+import type { UserConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import { defineConfig } from 'vite'
 
-export default defineConfig({
-  plugins: [react()],
-});
-
+// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  let build: UserConfig['build'] = {}
-  let esbuild: UserConfig['esbuild'] = {}
-  let define: UserConfig['define'] = {}
+  let build: UserConfig['build'], esbuild: UserConfig['esbuild'], define: UserConfig['define']
 
   if (mode === 'development') {
     build = {
@@ -40,8 +36,8 @@ export default defineConfig(({ mode }) => {
     define,
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
-      },
+        '@': '/src',
+      }
     },
     optimizeDeps: {
       exclude: ['lucide-react'],
