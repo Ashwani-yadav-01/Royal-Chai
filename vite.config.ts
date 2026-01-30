@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
+build command = npm run build
+Publish directory = dist
 
 export default defineConfig(({ mode }) => {
   let build: UserConfig['build'] = {}
